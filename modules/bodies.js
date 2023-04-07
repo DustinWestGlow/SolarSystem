@@ -104,17 +104,5 @@ function updatePlanet(planet, time) {
   planet.x.d = Math.cos(angle) * planet.orbitRadius.d;
   planet.y.d = Math.sin(angle) * planet.orbitRadius.d;
 }
-function pl_table_el(planet_nth, item_nth) {
-  var tr = document.querySelectorAll("#planets tr")[planet_nth];
-  var td = tr.querySelectorAll("td")[item_nth];
-  return td;
-}
-function observePlanet(planet) {
-}
-function general_info_planet(planet) {
-  pl_table_el(planet.nth, 0).textContent = planet.radius.d;
-  pl_table_el(planet.nth, 1).textContent = planet.radius.r;
-  pl_table_el(planet.nth, 2).textContent = planet.orbitRadius.d;
-  pl_table_el(planet.nth, 3).textContent = planet.orbitRadius.r;
-}
+
 // PHEW! Under 100 lines after refactor
