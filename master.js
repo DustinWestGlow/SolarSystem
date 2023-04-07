@@ -10,9 +10,9 @@ time = 0;
 // helped planet iteration and screen wipe problem
 keepclearing = true;//false;//true;
 // post general planet info at first
-init_planet_table();
+// init_planet_table();
 tick = 0;
-function gameLoop() {
+function loop() {
   // only clear once per game loop
   // DO NOT clear for every planet or only 1 planet will show
   if (keepclearing)
@@ -21,10 +21,11 @@ function gameLoop() {
     clearScreen();
   }
   // update time
-  time = (time + 0.1) % 360;
-  for (var i = 0; i < planets.length; i++) {
-    // The Sun
+  time = (time + 1);
+  // The Sun
     drawSun();
+  for (var i = 0; i < planets.length; i++) {
+    
     // update planet
     var planet = planets[i];
     updatePlanet(planet, time);
@@ -32,12 +33,12 @@ function gameLoop() {
     drawPlanet(planet, showOrbitPath=true);
     // then post specific time-dependent info
     // observe planet (html table)
-    observePlanet(planet);
+    // observePlanet(planet);
     // if (keepclearing)
     // {
       // console.log(planet);
     // }
   }
-  window.requestAnimFrame(gameLoop);
+  window.requestAnimFrame(loop);
 }
-window.requestAnimFrame(gameLoop);
+window.requestAnimFrame(loop);
