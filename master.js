@@ -10,7 +10,8 @@ time = 0;
 // helped planet iteration and screen wipe problem
 keepclearing = true;//false;//true;
 // post general planet info at first
-general_info_planet(planets[0]);
+init_planet_table();
+tick = 0;
 function gameLoop() {
   // only clear once per game loop
   // DO NOT clear for every planet or only 1 planet will show
@@ -20,7 +21,7 @@ function gameLoop() {
     clearScreen();
   }
   // update time
-  time = (time + 1) % 360;
+  time = (time + 0.1) % 360;
   for (var i = 0; i < planets.length; i++) {
     // The Sun
     drawSun();
