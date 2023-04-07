@@ -29,7 +29,7 @@ function gameLoop() {
     var planet = planets[i];
     updatePlanet(planet, time);
     // draw planet
-    drawPlanet(planet);
+    drawPlanet(planet, showOrbitPath=true);
     // then post specific time-dependent info
     // observe planet (html table)
     observePlanet(planet);

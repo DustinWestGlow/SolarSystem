@@ -86,16 +86,20 @@ function drawSun() {
 }
 /** END SUN */
 
-function drawPlanet(planet) {
+function drawPlanet(planet, showOrbitPath) {
     // draw and color planet
     c.drawImage(planet.img, planet.x.d, planet.y.d, 20, 20);
     // c.arc(planet.x, planet.y, planet.radius, 0, Math.PI * 2);
     // draw and color orbit circle
     c.beginPath();
     // circle x,y at sun, then stretch out to planet
-    c.arc(sun.x, sun.y, planet.orbitRadius.d, 0, Math.PI*2);
-    c.strokeStyle = "purple";
-    c.stroke();
+    var showOrbitPath = showOrbitPath || false;
+    if (showOrbitPath)
+    {
+      c.arc(sun.x, sun.y, planet.orbitRadius.d, 0, Math.PI*2);
+      c.strokeStyle = "purple";
+      c.stroke();
+    }
 }
 function updatePlanet(planet, time) {
   angle = (time/360) * (2 * Math.PI);
