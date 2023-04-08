@@ -1,3 +1,25 @@
+class Planet {
+    constructor(nth, rad, orb_rad, rev, pimg) {
+      this.nth = nth;
+      this.radius = rad;
+      this.orbitRadius = orb_rad;
+      this.revolution = rev;
+      this.x = 0;
+      this.y = 0;
+      this.img = pimg;
+      // start all planets in line at beginning of simulation
+      // distanced realistically
+      // will be wiped/updated by update loop
+    }
+}
+/** BEGIN SUN */
+class Star {
+    constructor(rad) {
+      this.x = 0;
+      this.y = 0;
+      this.radius = rad;
+    }
+  }
 /** Planet Radii
  * and Orbit Radii (Circular)
  * Used to calculate real math 2 pixels
@@ -32,7 +54,7 @@ var radii = [
     84.01,
     164.79
     ];
-    var au = 9.296*Math.pow(10, 7);
+var au = 9.296*Math.pow(10, 7);
     var pimgs = [
         "mercury.jpeg",
         "venus.jpeg",
@@ -43,6 +65,16 @@ var radii = [
         "uranus.jpeg",
         "neptune.jpeg",
         ];
+var planet_names = [
+"Mercury",
+"Venus",
+"Earth",
+"Mars",
+"Jupiter",
+"Saturn",
+"Uranus",
+"Neptune"
+];
 var sun_radii = 4.325 * Math.pow(10, 5);
 // 'media' not '/media'
 var sun = new Star(sun_radii);

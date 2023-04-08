@@ -26,8 +26,8 @@
 
         <div name="navigate">
           <nav class="navbar navbar-expand-sm">
-          <div class="container-fluid">
-            <button class="text-white btn" href="#"
+            <div class="container-fluid">
+            <button class="text-white btn navbar-nav me-auto mb-2 mb-lg-0" href="#"
               >Hide <span class="text-data">Data</span></button
             >
             <button
@@ -41,17 +41,30 @@
             >
               <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <div class="btn-group" role="group" aria-label="Basic example">
-                  <button type="button" class="btn btn-warning">INWARDS</button>
-                  <button type="button" class="btn btn-danger">OUTWARDS</button>
-                </div>
-              </ul>
-              <span class="navbar-text text-white">Cursor @ (100.00 AU, 200.00 AU) </span>
+            <div class="navbar-nav" id="navbarSupportedContent">
+              
+              <span name="cursor_coords" class="navbar-text text-white">Cursor @ (100.00 AU, 200.00 AU) </span>
             </div>
           </div>
         </nav>
+
+        <nav class="navbar">
+          <div class="container-fluid">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-outline-warning">Planet In</button>
+                <button type="button" class="btn btn-outline-danger">Planet Out</button>
+              </div>
+            </ul>
+            <ul class="navbar-nav">
+              <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-outline-warning">Zoom In</button>
+                <button type="button" class="btn btn-outline-danger">Zoom Out</button>
+              </div>
+            </ul>
+          </div>
+        </nav>
+
         </div>
         <div name="planet" class="row align-items-start">
         <div class="col col-9" id="data">
@@ -64,16 +77,16 @@
             </span>
              @ 
             (
-            <span class="measurement">
+            <span class="measurement" name="pcx">
               70,000,000
             </span>
-            <span class="unit">
+            <span class="unit" name="pcxu">
               miles X
             </span>,
-            <span class="measurement">
+            <span class="measurement" name="pcy">
               20,000,000
             </span>
-            <span class="unit">
+            <span class="unit" name="pcyu">
               miles y
             </span>
             )
@@ -81,19 +94,21 @@
           <div name="orbit" class="info">
             <span class="variable">Orbit</span> @
             '
-            <span class="measurement">
+            <span name="orbit_measurement" class="measurement">
             350
             </span>
-            <span class="unit">
+            <span name="orbit_unit" class="unit">
               px
             </span>
             '
           </div>
+          <div name="radius" class="info">
+            <span class="variable">Radius</span> @ '
+            <span name="radius_measurement" class="measurement">4,000</span>
+            <span name="radius_unit" class="unit">miles</span>'
+          </div>
           <div name="revolution" class="info">
             <span class="variable">Revolution</span> @ '<span class="measurement">1.00</span> <span class="unit">Years</span>'
-          </div>
-          <div name="radius" class="info">
-            <span class="variable">Radius</span> @ '<span class="measurement">4,000</span> <span class="unit">miles</span>'
           </div>
         </div>
         <div class="col col-3" id="options">
@@ -123,6 +138,7 @@
 
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
     <script src="modules/data.js"></script>
     <script src="modules/animframe.js"></script>
     <script src="modules/canvas.js"></script>

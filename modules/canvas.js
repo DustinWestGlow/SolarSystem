@@ -17,8 +17,6 @@ var screen_width = window.innerWidth - 10;
 var screen_height = window.innerHeight - 10;
 // var screen_width = document.body.clientWidth;
 // var screen_height = document.body.clientHeight;
-console.log(screen_width);
-console.log(screen_height);
 var container = document.getElementById("container");
 container.setAttribute("style", "width:" + screen_width + "px; height: " + screen_height + "px; position: relative;");;
 canvas.width = screen_width;

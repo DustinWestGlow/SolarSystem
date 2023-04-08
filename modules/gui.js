@@ -43,10 +43,3 @@ window.addEventListener('keyup', function(e) {
         DOWN = false;
     }
 });
-
-function keymove() {
-    movespeedpx = 1;
-    if (LEFT) {
-        zz.x += movespeedpx;
-    }
-}

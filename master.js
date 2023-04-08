@@ -39,6 +39,8 @@ function loop() {
       // console.log(planet);
     // }
   }
+  // Show data
+  observe();
   window.requestAnimFrame(loop);
 }
 window.requestAnimFrame(loop);

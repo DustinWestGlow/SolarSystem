@@ -8,20 +8,7 @@ outer = orbit_radii[orbit_radii.length - 1];
 function real2d(miles) {
   return miles / outer * screen_width / 2;
 }
-class Planet {
-  constructor(nth, rad, orb_rad, rev, pimg) {
-    this.nth = nth;
-    this.radius = rad;
-    this.orbitRadius = orb_rad;
-    this.revolution = rev;
-    this.x = 0;
-    this.y = 0;
-    this.img = pimg;
-    // start all planets in line at beginning of simulation
-    // distanced realistically
-    // will be wiped/updated by update loop
-  }
-}
+
 
 
 zoom = 0.80;
@@ -37,14 +24,7 @@ for (var i = 0; i < planet_count; i++)
   planets.push(np);
 }
 
-/** BEGIN SUN */
-class Star {
-  constructor(rad) {
-    this.x = 0;
-    this.y = 0;
-    this.radius = rad;
-  }
-}
+
 
 
 
@@ -58,6 +38,17 @@ function drawSun() {
 /** END SUN */
 
 function drawPlanet(planet, showOrbitPath) {
+  c.beginPath();
+    // circle x,y at sun, then stretch out to planet
+    var showOrbitPath = showOrbitPath || false;
+    if (showOrbitPath)
+    {
+      c.arc(sun.x, sun.y,
+        planet.orbitRadius/au * zoom * smaller/2, 0, Math.PI*2);
+      c.strokeStyle = "indigo";
+      c.lineWidth = 3;
+      c.stroke();
+    }
     // draw and color planet
     digital_x = zz.x + planet.x / au * zoom * smaller/2;    
     digital_y = zz.y + planet.y / au * zoom * smaller/2;
@@ -68,17 +59,6 @@ function drawPlanet(planet, showOrbitPath) {
     planet_size, planet_size);
     // c.arc(planet.x, planet.y, planet.radius, 0, Math.PI * 2);
     // draw and color orbit circle
-    c.beginPath();
-    // circle x,y at sun, then stretch out to planet
-    var showOrbitPath = showOrbitPath || false;
-    if (showOrbitPath)
-    {
-      c.arc(sun.x, sun.y,
-        planet.orbitRadius/au * zoom * smaller/2, 0, Math.PI*2);
-      c.strokeStyle = "#ff0";
-      c.lineWidth = 1;
-      c.stroke();
-    }
     // draw dot in middle of screen :)
     c.beginPath();
     c.arc(0, 0,
