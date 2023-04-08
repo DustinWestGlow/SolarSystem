@@ -12,6 +12,8 @@ keepclearing = true;//false;//true;
 // post general planet info at first
 // init_planet_table();
 tick = 0;
+var background = new Image();
+background.src = "media/stars.jpg";
 function loop() {
   // only clear once per game loop
   // DO NOT clear for every planet or only 1 planet will show
@@ -25,7 +27,6 @@ function loop() {
   // The Sun
     drawSun();
   for (var i = 0; i < planets.length; i++) {
-    
     // update planet
     var planet = planets[i];
     updatePlanet(planet, time);

@@ -1,7 +1,28 @@
 
-SHOWDATA = false;
+SHOWDATA = true;
+$("#gui_container [name='toggle_data']").click(function() {
+   // whether to hide or show data
+  var data_el = $("#gui_container [name='planet']");
+  SHOWDATA = !SHOWDATA;
+  if (SHOWDATA) {
+    $("[name='toggle_data']").text("Hide Data");
+  } else {
+    $("[name='toggle_data']").text("Show Data");
+  }
+  data_el.toggle();
+});
 PLANET = 2;
-var unit = "au"
+var unit = "au";
+$("[name='pout']").click(function() {
+  PLANET = (PLANET + 1) % (planets.length);
+  digital_x = planets[PLANET].orbitRadius / au * zoom * smaller/2;    
+  zz.x = -digital_x;
+});
+$("[name='pin']").click(function() {
+  PLANET = Math.max(Math.abs(PLANET - 1), 0);
+  digital_x = planets[PLANET].orbitRadius / au * zoom * smaller/2;    
+  zz.x = -digital_x;
+});
 function unitconv(n, fromu, tou) {
   if (fromu == tou) {
     return n;
@@ -72,6 +93,11 @@ function observe() {
   );
 
   $("[name='radius_unit']").text(unit);
+  
+  // Revolution
+  $("[name='revolution_measurement']").text(
+    revolutions[PLANET].toFixed(2)
+  );
 
 }
 

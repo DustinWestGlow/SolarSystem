@@ -9,7 +9,8 @@ html {
   font-family: sans-serif;
 }
 canvas {
-  /* border: 1px solid white; */
+  background-image: url(media/stars.jpg);
+  background-repeat: repeat-x; 
 }
 #container {
   width: 100px;

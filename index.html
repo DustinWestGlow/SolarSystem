@@ -27,9 +27,9 @@
         <div name="navigate">
           <nav class="navbar navbar-expand-sm">
             <div class="container-fluid">
-            <button class="text-white btn navbar-nav me-auto mb-2 mb-lg-0" href="#"
-              >Hide <span class="text-data">Data</span></button
-            >
+            <button name="toggle_data" class="text-white btn navbar-nav me-auto mb-2 mb-lg-0" href="#">
+              Hide Data
+              </button>
             <button
               class="navbar-toggler"
               type="button"
@@ -48,25 +48,24 @@
           </div>
         </nav>
 
-        <nav class="navbar">
-          <div class="container-fluid">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <div class="btn-group" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-outline-warning">Planet In</button>
-                <button type="button" class="btn btn-outline-danger">Planet Out</button>
-              </div>
-            </ul>
-            <ul class="navbar-nav">
-              <div class="btn-group" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-outline-warning">Zoom In</button>
-                <button type="button" class="btn btn-outline-danger">Zoom Out</button>
-              </div>
-            </ul>
-          </div>
-        </nav>
-
         </div>
         <div name="planet" class="row align-items-start">
+          <nav name="movenav" class="navbar">
+            <div class="container-fluid">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <div class="btn-group" role="group" aria-label="Basic example">
+                  <button name="pin" type="button" class="btn btn-outline-warning">Planet In</button>
+                  <button name="pout" type="button" class="btn btn-outline-danger">Planet Out</button>
+                </div>
+              </ul>
+              <ul class="navbar-nav">
+                <div class="btn-group" role="group" aria-label="Basic example">
+                  <button type="button" class="btn btn-outline-warning">Zoom In</button>
+                  <button type="button" class="btn btn-outline-danger">Zoom Out</button>
+                </div>
+              </ul>
+            </div>
+          </nav>
         <div class="col col-9" id="data">
           <div name="title" class="info">
             Earth [<span="measurement">3</span>] Planet
@@ -108,7 +107,11 @@
             <span name="radius_unit" class="unit">miles</span>'
           </div>
           <div name="revolution" class="info">
-            <span class="variable">Revolution</span> @ '<span class="measurement">1.00</span> <span class="unit">Years</span>'
+            <span class="variable">Revolution</span> @ '
+            <span name="revolution_measurement" class="measurement">
+              1.00
+            </span>
+            <span class="unit">Years</span>'
           </div>
         </div>
         <div class="col col-3" id="options">
@@ -142,7 +145,7 @@
     <script src="modules/data.js"></script>
     <script src="modules/animframe.js"></script>
     <script src="modules/canvas.js"></script>
-    <script src="modules/gui.js"></script>
+    <script src="modules/moving.js"></script>
     <script src="modules/bodies.js"></script>
     <script src="modules/observation.js"></script>
     <script src="master.js"></script>
