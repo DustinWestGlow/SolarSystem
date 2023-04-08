@@ -1,38 +1,4 @@
-/** Planet Radii
- * and Orbit Radii (Circular)
- * Used to calculate real math 2 pixels
- **/
-var radii = [
-1.516 * Math.pow(10, 3),
-3.760 * Math.pow(10, 3),
-3.959 * Math.pow(10, 3),
-2.106 * Math.pow(10, 3),
-4.344 * Math.pow(10, 4),
-3.618 * Math.pow(10, 4),
-1.576 * Math.pow(10, 4),
-1.530 * Math.pow(10, 4)
-];
-var orbit_radii = [
-5.79 * Math.pow(10, 7),
-0.672 * Math.pow(10, 8),
-0.930 * Math.pow(10, 8),
-1.417 * Math.pow(10, 8),
-4.837 * Math.pow(10, 8),
-8.898 * Math.pow(10, 8),
-1.421 * Math.pow(10, 9),
-2.805 * Math.pow(10, 9)
-];
-var revolutions = [
-87.97/365,
-224.7/365,
-365.26/365,
-1.88,
-11.88,
-29.46,
-84.01,
-164.79
-];
-var au = 9.296*Math.pow(10, 7);
+
 
 // scale out to neptune
 outer = orbit_radii[orbit_radii.length - 1];
@@ -56,16 +22,7 @@ class Planet {
     // will be wiped/updated by update loop
   }
 }
-var pimgs = [
-"mercury.jpeg",
-"venus.jpeg",
-"earth.jpeg",
-"elonmusk.jpeg",
-"jupiter.jpeg",
-"saturn.jpeg",
-"uranus.jpeg",
-"neptune.jpeg",
-];
+
 
 zoom = 0.80;
 planet_count = 8;
@@ -88,15 +45,13 @@ class Star {
     this.radius = rad;
   }
 }
-var sun_radii = 4.325 * Math.pow(10, 5);
-var sun = new Star(sun_radii);
-var sun_img = new Image();
-// 'media' not '/media'
-sun_img.src = "media/sun.jpeg";
+
+
+
 function drawSun() {
     // c.drawImage(sun_img, sun.x - 10, sun.y - 10, 20, 20);
     c.beginPath();
-    c.arc(sun.x, sun.y, 10, 0, Math.PI * 2);
+    c.arc(zz.x, zz.y, 10, 0, Math.PI * 2);
     c.fillStyle = "yellow";
     c.fill();
 }
@@ -104,8 +59,8 @@ function drawSun() {
 
 function drawPlanet(planet, showOrbitPath) {
     // draw and color planet
-    digital_x = planet.x / au * zoom * smaller/2;    
-    digital_y = planet.y / au * zoom * smaller/2;
+    digital_x = zz.x + planet.x / au * zoom * smaller/2;    
+    digital_y = zz.y + planet.y / au * zoom * smaller/2;
     planet_size = 20;
     c.drawImage(planet.img,  
       digital_x - planet_size/2,
@@ -120,12 +75,35 @@ function drawPlanet(planet, showOrbitPath) {
     {
       c.arc(sun.x, sun.y,
         planet.orbitRadius/au * zoom * smaller/2, 0, Math.PI*2);
-      c.strokeStyle = "purple";
+      c.strokeStyle = "#ff0";
+      c.lineWidth = 1;
       c.stroke();
     }
+    // draw dot in middle of screen :)
+    c.beginPath();
+    c.arc(0, 0,
+      2,
+      0, Math.PI*2);
+    c.fillStyle = "white";
+    c.fill();
 }
 function updatePlanet(planet, time) {
   angle = (time/360) * (2 * Math.PI);
+  speed = 2;
+  if (LEFT) {
+    zz.x += speed;
+  }
+  if (RIGHT) {
+    zz.x -= speed;
+  }
+  if (UP) {
+    zz.y -= speed;
+  }
+  if (DOWN) {
+    zz.y += speed;
+  }
+  sun.x = zz.x;
+  sun.y = zz.y;
   planet.x = Math.cos(angle) * planet.orbitRadius;
   planet.y = Math.sin(angle) * planet.orbitRadius;
 }

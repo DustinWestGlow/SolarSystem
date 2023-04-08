@@ -15,59 +15,122 @@
     
     <!--<img hidden src="earth.png">-->
     
-    <div id="container">
+    <div id="container" class="container">
+
       <div id="canvas_container">
         <canvas id="canvas" width="250" height="250"></canvas>
       </div>
 
-      <div id="gui_container">
+      <div id="gui_container" class="container">
 
 
-        <table>
-          <thead>
-            
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">The Sun</th>
-            </tr>
-          </tbody>
-        </table>
-        
-        <p name="time">T = 360</p>
-        
-        <table>
-          <thead>
-            <tr>
-              <!--<td colspan="2"></td>-->
-              <th scope="col">Name</th>
-              <th scope="col">dRad</th>
-              <th scope="col">rRad</th>
-              <th scope="col">dORad</th>
-              <th scope="col">rORad</th>
-              <th scope="col">(dig X, dig Y)</th>
-              <th scope="col">(real X, real Y)</th>
-              <!--<th scope="col">Density (kg/m<sup>3</sup>)</th>-->
-              <!--<th scope="col">Gravity (m/s<sup>2</sup>)</th>-->
-              <!--<th scope="col">Length of day (hours)</th>-->
-              <!--<th scope="col">Distance from Sun (10<sup>6</sup>km)</th>-->
-              <!--<th scope="col">Mean temperature (°C)</th>-->
-              <!--<th scope="col">Number of moons</th>-->
-              <!--<th scope="col">Notes</th>-->
-            </tr>
-          </thead>
-          <tbody id="planets">
-          </tbody>
-        </table>
+        <div name="navigate">
+          <nav class="navbar navbar-expand-sm">
+          <div class="container-fluid">
+            <button class="text-white btn" href="#"
+              >Hide <span class="text-data">Data</span></button
+            >
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <div class="btn-group" role="group" aria-label="Basic example">
+                  <button type="button" class="btn btn-warning">INWARDS</button>
+                  <button type="button" class="btn btn-danger">OUTWARDS</button>
+                </div>
+              </ul>
+              <span class="navbar-text text-white">Cursor @ (100.00 AU, 200.00 AU) </span>
+            </div>
+          </div>
+        </nav>
+        </div>
+        <div name="planet" class="row align-items-start">
+        <div class="col col-9" id="data">
+          <div name="title" class="info">
+            Earth [<span="measurement">3</span>] Planet
+          </div>
+          <div name="coords" class="info">
+            <span class="variable">
+              Coords
+            </span>
+             @ 
+            (
+            <span class="measurement">
+              70,000,000
+            </span>
+            <span class="unit">
+              miles X
+            </span>,
+            <span class="measurement">
+              20,000,000
+            </span>
+            <span class="unit">
+              miles y
+            </span>
+            )
+          </div>
+          <div name="orbit" class="info">
+            <span class="variable">Orbit</span> @
+            '
+            <span class="measurement">
+            350
+            </span>
+            <span class="unit">
+              px
+            </span>
+            '
+          </div>
+          <div name="revolution" class="info">
+            <span class="variable">Revolution</span> @ '<span class="measurement">1.00</span> <span class="unit">Years</span>'
+          </div>
+          <div name="radius" class="info">
+            <span class="variable">Radius</span> @ '<span class="measurement">4,000</span> <span class="unit">miles</span>'
+          </div>
+        </div>
+        <div class="col col-3" id="options">
+          <div class="form-check">
+      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+      <label class="form-check-label" for="flexRadioDefault1">
+        Kilometers
+      </label>
+    </div>
+          <div class="form-check">
+      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+      <label class="form-check-label" for="flexRadioDefault2">
+        Miles
+      </label>
+    </div>
+          <div class="form-check">
+      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" checked>
+      <label class="form-check-label" for="flexRadioDefault3">
+        Astronomical Units (AU)
+      </label>
+    </div>
+        </div>
+
+      </div>
       
       </div>
+
     </div>
 
+    <script src="modules/data.js"></script>
     <script src="modules/animframe.js"></script>
     <script src="modules/canvas.js"></script>
+    <script src="modules/gui.js"></script>
     <script src="modules/bodies.js"></script>
     <script src="modules/observation.js"></script>
     <script src="master.js"></script>
+    <link href="libraries/bootstrap-5.3.0-alpha3-dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
     <link href="styles.css" rel="stylesheet" type="text/css">
     
 </body>
